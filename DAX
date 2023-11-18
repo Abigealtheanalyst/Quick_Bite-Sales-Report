@@ -1,0 +1,38 @@
+Below are some of the DAX code I wrote to analyse the data
+
+//Created a data table
+
+    DATE_TABLE = CALENDAR(MIN('pizza_sales'[order_date]), MAX('pizza_sales'[order_date]))
+
+    Day = FORMAT('DATE_TABLE'[Date], "dddd")
+
+    Month = FORMAT('DATE_TABLE'[Date], "mmmm")
+
+    Year = YEAR('DATE_TABLE'[Date])
+
+//Average Order
+
+    Average_order = [Total_Revenue] / [Total_order]
+
+//Total Pizza Sold
+
+    Total_Pizza_sold = SUM(pizza_sales[quantity])
+
+//Total Revenue
+
+    Total_Revenue = SUM(pizza_sales[total_price])
+
+//Total Order
+
+    Total_order = DISTINCTCOUNT(pizza_sales[order_id])
+
+//Average Pizza per order
+
+    Avg_pizza_per_order = [Total_Pizza_sold]/[Total_order]
+
+//Extracted the first 3 char of the week day, Ended up not using it in my visuals
+
+    Order_day = LEFT('pizza_sales'[Day Name], 3)
+
+
+
