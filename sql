@@ -39,7 +39,7 @@ sum(total_price)* 100  /
 	(SELECT SUM(total_price)
 	 FROM PizzaCompany.dbo.pizza_sales) as sales_percent
 FROM PizzaCompany.dbo.pizza_sales
-group by Pizza_category
+group by Pizza_category;
 
 9.	/*Percentage of sales by Pizza size*/
 SELECT pizza_size, CAST (sum(total_price)AS DECIMAL(10, 2)) as Sales_total,
@@ -47,7 +47,7 @@ CAST(sum(total_price)* 100  /
 	(SELECT SUM(total_price)
 	 FROM PizzaCompany.dbo.pizza_sales) AS DECIMAL (10, 2)) as sales_percent
 FROM PizzaCompany.dbo.pizza_sales 
-group by pizza_size
+group by pizza_size;
   
 10.	/*TOP 5 BEST SELLERS BY REVENUE (TOTAL QUANTITY & TOTAL ORDER)*/
 SELECT TOP 5 pizza_name,
@@ -56,7 +56,7 @@ sum(total_price)as total_revenue
 --sum(distinct order_id) as total_order
 from PizzaCompany.dbo.pizza_sales
 group by pizza_name
-order by 2 desc
+order by 2 desc;
 
 11. /*BOTTOM 5 BEST SELLER BY REVENUE (TOTAL QUANTITY & TOTAL ORDER)*/
 SELECT TOP 5 pizza_name,
@@ -65,7 +65,7 @@ sum(total_price)as total_revenue
 --sum(distinct order_id) as total_order
 from PizzaCompany.dbo.pizza_sales
 group by pizza_name
-order by 2
+order by 2;
 
 
 
